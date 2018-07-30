@@ -1,5 +1,5 @@
 # SketchImage
-[![](https://jitpack.io/v/devsideal/ReadMoreOption.svg)](https://jitpack.io/#devsideal/SketchImage/1.0.0)
+[![](https://jitpack.io/v/devsideal/SketchImage.svg)](https://jitpack.io/#devsideal/SketchImage)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-ReadMoreOption-green.svg?style=flat )]( https://android-arsenal.com/details/1/7058)
 [![GitHub license](https://img.shields.io/github/license/dcendents/android-maven-gradle-plugin.svg )]( http://www.apache.org/licenses/LICENSE-2.0.html)
 
