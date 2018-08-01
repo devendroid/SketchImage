@@ -23,7 +23,7 @@
         <ImageView
             android:layout_marginLeft="16dp"
             android:id="@+id/iv_targe"
-            android:src="@drawable/usr"
+            android:src="@drawable/hd_img"
             android:layout_width="150dp"
             android:layout_height="150dp" />
 

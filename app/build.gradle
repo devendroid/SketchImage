@@ -28,4 +28,6 @@ dependencies {
 
     implementation project(':sketchimage')
 
+    //implementation 'com.github.devsideal:SketchImage:1.0.0'
+
 }
