@@ -23,7 +23,7 @@ Convert image in pencil sketch, gray scale, blur effect and inverted color.
 #### Step 2. Add the dependency
 ```gradle
     dependencies {
-        implementation 'com.github.devsideal:SketchImage:1.0.0'
+        implementation 'com.github.devsideal:SketchImage:1.0.1'
      }
 
 ```
