@@ -20,17 +20,56 @@
             android:layout_height="150dp" />
 
 
-        <ImageView
+        <RelativeLayout
             android:layout_marginLeft="16dp"
-            android:id="@+id/iv_targe"
-            android:src="@drawable/hd_img"
             android:layout_width="150dp"
-            android:layout_height="150dp" />
+            android:layout_height="150dp">
+            <ImageView
+                android:id="@+id/iv_target"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/pb"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
 
-    <Button
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?actionBarSize"
+        app:tabGravity="fill"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextColor="@android:color/white"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabIndicatorHeight="4dp"
+        app:tabBackground="@color/colorPrimary"
+        app:tabMode="scrollable"/>
+
+    <TextView
+        android:id="@+id/tv_pb"
+        android:layout_margin="32dp"
+        android:layout_gravity="center_horizontal"
+        tools:text="100 %"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:id="@+id/simpleSeekBar"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp" />
+
+
+   <!-- <Button
         android:layout_marginTop="4dp"
         android:layout_marginLeft="16dp"
         android:id="@+id/btn_sketch"
@@ -60,6 +99,6 @@
         android:id="@+id/btn_invert"
         android:text="Invert"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
 </LinearLayout>

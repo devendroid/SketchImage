@@ -35,10 +35,16 @@ import java.nio.IntBuffer;
  */
 public class SketchImage {
 
-    public static final int SKETCH = 1;
-    public static final int GRAY = 2;
-    public static final int BLUR = 3;
-    public static final int INVERT = 4;
+    public static final int ORIGINAL_TO_GRAY = 0;
+    public static final int ORIGINAL_TO_SKETCH = 1;
+    public static final int ORIGINAL_TO_COLORED_SKETCH = 2;
+    public static final int ORIGINAL_TO_SOFT_SKETCH = 3;
+    public static final int ORIGINAL_TO_SOFT_COLOR_SKETCH = 4;
+    public static final int GRAY_TO_SKETCH = 5;
+    public static final int GRAY_TO_COLORED_SKETCH = 6;
+    public static final int GRAY_TO_SOFT_SKETCH = 7;
+    public static final int GRAY_TO_SOFT_COLOR_SKETCH = 8;
+    public static final int SKETCH_TO_COLOR_SKETCH = 9;
 
     // required
     private Context context;
@@ -49,33 +55,86 @@ public class SketchImage {
     private SketchImage(Builder builder){
         this.context = builder.context;
         this.bitmap = builder.bitmap;
-
-        // Process bitmap
-        bmGray = toGrayscale(bitmap, 1);
-        bmInvert = toInverted(bmGray, 100);
-        Bitmap bmpBlur = toBlur(bmInvert, 100);
-        bmBlend = colorDodgeBlend(bmpBlur, bmGray, 100);
-        bmBlur = toBlur(bitmap, 100);
     }
 
     /**
-     * @param type SKETCH or GRAY or BLUR or INVERT
+     * @param type ORIGINAL_TO_GRAY or ORIGINAL_TO_SKETCH and many more..
+     * @param value 0 to 100 to controll effect
      * @return Processed Bitmap
      */
-    public Bitmap getImageAs(int type) {
+    public Bitmap getImageAs(int type, int value) {
 
         switch (type){
-            case SKETCH:
+            case ORIGINAL_TO_GRAY:
+                 bmGray = toGrayscale(bitmap, 101-value); //101-i
+                 bmInvert = toInverted(bmGray, 1); //i
+                 bmBlur = toBlur(bmInvert, 1); //i
+                 bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
                 return bmBlend;
 
-            case GRAY:
-                return bmGray;
+            case ORIGINAL_TO_SKETCH:
+                bmGray = toGrayscale(bitmap, 101-value); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, 100); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
 
-            case BLUR:
-                return bmBlur;
+            case ORIGINAL_TO_COLORED_SKETCH:
+                bmGray = toGrayscale(bitmap, 100); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, value); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
 
-            case INVERT:
-                return bmInvert;
+            case ORIGINAL_TO_SOFT_SKETCH:
+                bmGray = toGrayscale(bitmap, 101-value); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, 1); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
+
+
+            case ORIGINAL_TO_SOFT_COLOR_SKETCH:
+                bmGray = toGrayscale(bitmap, 100); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, 101-value); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
+
+            case GRAY_TO_SKETCH:
+                bmGray = toGrayscale(bitmap, 1); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, 100); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
+
+            case GRAY_TO_COLORED_SKETCH:
+                bmGray = toGrayscale(bitmap, value); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, value); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
+
+            case GRAY_TO_SOFT_SKETCH:
+                bmGray = toGrayscale(bitmap, 100); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, 1); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
+
+            case GRAY_TO_SOFT_COLOR_SKETCH:
+                bmGray = toGrayscale(bitmap, value); //101-i
+                bmInvert = toInverted(bmGray, value); //i
+                bmBlur = toBlur(bmInvert, 1); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
+
+            case SKETCH_TO_COLOR_SKETCH:
+                bmGray = toGrayscale(bitmap, value); //101-i
+                bmInvert = toInverted(bmGray, 100); //i
+                bmBlur = toBlur(bmInvert, 100); //i
+                bmBlend = colorDodgeBlend(bmBlur, bmGray, 100);
+                return bmBlend;
         }
         return bitmap;
     }

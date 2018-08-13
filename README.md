@@ -35,11 +35,12 @@ Convert image in pencil sketch, gray scale, blur effect and inverted color.
   SketchImage sketchImage = new SketchImage.Builder(this, bmOriginal).build();
   
   Bitmap bmProcessed = sketchImage.getImageAs(
-            SketchImage.SKETCH
+            SketchImage.ORIGINAL_TO_SKETCH, 100 // value 0 - 100
             // Other options
-            // SketchImage.GRAY
-            // SketchImage.BLUR
-            //SketchImage.INVERT
+            // SketchImage.ORIGINAL_TO_GRAY
+            // SketchImage.ORIGINAL_TO_COLORED_SKETCH
+            // SketchImage.ORIGINAL_TO_SOFT_SKETCH
+            // And many more.....
     );
   imageView.setImageBitmap(bmProcessed);
 
