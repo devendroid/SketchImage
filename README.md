@@ -5,7 +5,7 @@
 
 Convert image in pencil sketch, gray scale, blur effect and inverted color.
 ## Demo
-![ReadMoreOption](/assets/sketchimage1.0.0.gif)
+![ReadMoreOption](/assets/sketchimage1.0.1.gif)
 
 ## Dependency
 - Add the dependencies to your gradle files:
