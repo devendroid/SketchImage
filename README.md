@@ -1,6 +1,6 @@
 # SketchImage
 [![](https://jitpack.io/v/devsideal/SketchImage.svg)](https://jitpack.io/#devsideal/SketchImage)
-[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-ReadMoreOption-green.svg?style=flat )]( https://android-arsenal.com/details/1/7058)
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-SketchImage-green.svg?style=flat )]( https://android-arsenal.com/details/1/7116)
 [![GitHub license](https://img.shields.io/github/license/dcendents/android-maven-gradle-plugin.svg )]( http://www.apache.org/licenses/LICENSE-2.0.html)
 
 Convert image in pencil sketch and apply different effects with controller.
