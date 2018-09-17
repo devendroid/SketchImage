@@ -55,6 +55,7 @@
         app:tabMode="scrollable"/>
 
     <TextView
+
         android:id="@+id/tv_pb"
         android:layout_margin="32dp"
         android:layout_gravity="center_horizontal"
